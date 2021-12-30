@@ -19,8 +19,5 @@ public class Role {
     private UUID roleId;
 
     private String name;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private Set<User> users;
+    
 }

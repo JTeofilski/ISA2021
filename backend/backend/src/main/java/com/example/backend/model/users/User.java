@@ -10,6 +10,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     // Registrovani korisnik
 
