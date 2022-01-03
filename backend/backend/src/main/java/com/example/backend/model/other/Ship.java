@@ -28,6 +28,8 @@ public class Ship {
 
     @Column(name = "shipgrade")
     Double shipGrade;
+
+    // Klasa termini,cenovnik, dodatne usuluge ima vezu neku sa  brodom
     //informacije o slobodnim terminima,
     //prikaz cenovnika i dodatnih usluga koje se uz rezervaciju mogu koristiti.
 

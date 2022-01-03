@@ -1,5 +1,6 @@
 package com.example.backend.model.users;
 
+import com.example.backend.model.common.Address;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -35,17 +36,11 @@ public class User {
     @Column(name = "lastname")
     private String lastName;
 
-    @Column(name = "useraddress")
-    private String userAddress;
-
-    @Column(name = "usercity")
-    private String userCity;
-
-    @Column(name = "usercountry")
-    private String userCountry;
-
     @Column(name = "phonenumber")
     private String phoneNumber;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Address address;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_roles",joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
