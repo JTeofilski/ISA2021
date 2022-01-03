@@ -19,5 +19,5 @@ public class Role {
     private UUID roleId;
 
     private String name;
-    
+
 }
