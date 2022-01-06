@@ -1,6 +1,7 @@
 package com.example.backend.model.users;
 
 import com.example.backend.model.common.Address;
+import com.example.backend.model.enums.StatusOfProfile;
 import lombok.Data;
 import lombok.Getter;
 import org.hibernate.annotations.GenericGenerator;
@@ -47,9 +48,13 @@ public class User {
     @JoinTable(name = "users_roles",joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    // Na svom profilu,
-    //korisnik može da vidi svoje poene kao i kategoriju korisnika kojoj pripada i
-    //pogodnosti koje ima (odnosi se na loyalty program).
+    @Column
+    private StatusOfProfile status;
 
+    @Column
+    private boolean firstLogin;
+
+    @Column
+    private Boolean deleted;
 
 }

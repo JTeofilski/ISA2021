@@ -1,7 +1,9 @@
 package com.example.backend.model.users;
 
+import com.example.backend.model.enums.AdminEnum;
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -12,5 +14,6 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "user_id")
 public class Administrator extends User {
 
-    private Integer points;
+    @Column
+    private AdminEnum adminType;
 }

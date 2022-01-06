@@ -5,6 +5,8 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -35,7 +37,10 @@ public class Ship {
     //prikaz cenovnika i dodatnih usluga koje se uz rezervaciju mogu koristiti.
 
 
+    @Column
+    private Boolean deleted;
 
-
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ship")
+    private Set<Revision> revisions = new HashSet<Revision>();
 
 }

@@ -1,11 +1,14 @@
 package com.example.backend.model.other;
 
+import com.example.backend.model.common.Address;
 import com.example.backend.model.common.Country;
+import com.example.backend.model.users.HouseOwner;
 import lombok.Data;
-import org.apache.tomcat.jni.Address;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -22,9 +25,8 @@ public class House {
     @Column(name = "house_name")
     private String houseName;
 
-    // kako ovo resiti, da na jednoj adres moze biti samo jedna kuca?
-    @Column(name = "house_address")
-    private String houseAddress;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Address address;
 
     @Column(name = "house_description")
     private String houseDescription;
@@ -32,6 +34,28 @@ public class House {
     @Column(name = "house_grade")
     private Double houseGrade;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    private HouseOwner houseOwner;
 
+    // slike enter i ekster
+
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "house")
+    private Set<Room> rooms = new HashSet<Room>();
+
+    @Column
+    private String behaviour;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "house")
+    private Set<Serve> serves = new HashSet<Serve>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "house")
+    private Set<Reservation> reservations = new HashSet<Reservation>();
+
+    @Column
+    private Boolean deleted;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "house")
+    private Set<Revision> revisions = new HashSet<Revision>();
 
 }

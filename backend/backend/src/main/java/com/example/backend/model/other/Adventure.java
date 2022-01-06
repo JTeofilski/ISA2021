@@ -1,5 +1,6 @@
 package com.example.backend.model.other;
 
+import com.example.backend.model.users.Instructor;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -29,4 +30,7 @@ public class Adventure {
 
     @Column(name = "adventure_grade")
     Double adventureGrade;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    Instructor instructor;
 }
