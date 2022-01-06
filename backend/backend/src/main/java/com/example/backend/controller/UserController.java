@@ -1,14 +1,13 @@
 package com.example.backend.controller;
 
+import com.example.backend.model.users.Customer;
 import com.example.backend.model.users.User;
 import com.example.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,6 +26,12 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<User>> findAll() {
         return ResponseEntity.ok().body(this.userService.findAll());
+    }
+
+    @PostMapping
+    public ResponseEntity<User> create(@RequestBody User user){
+        return ResponseEntity.ok().body(userService.create(user));
+
     }
 
 }

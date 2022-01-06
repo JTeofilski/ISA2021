@@ -1,5 +1,6 @@
 package com.example.backend.service;
 
+import com.example.backend.model.users.Customer;
 import com.example.backend.model.users.User;
 import com.example.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,5 +22,9 @@ public class UserService {
 
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    public User create(User user){
+        return userRepository.save(user);
     }
 }
