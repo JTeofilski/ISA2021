@@ -18,6 +18,6 @@ public class Role {
     @Column(name = "role_id", nullable = false, unique = true)
     private UUID roleId;
 
-    private String name;
+    private String roleName;
 
 }
