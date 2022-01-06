@@ -2,6 +2,7 @@ package com.example.backend.model.users;
 
 import com.example.backend.model.common.Address;
 import lombok.Data;
+import lombok.Getter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -24,19 +25,19 @@ public class User {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "userpassword", nullable = false)
+    @Column(name = "user_password", nullable = false)
     private String password;
 
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "firstname")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "lastname")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "phonenumber")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -45,5 +46,10 @@ public class User {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_roles",joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    // Na svom profilu,
+    //korisnik može da vidi svoje poene kao i kategoriju korisnika kojoj pripada i
+    //pogodnosti koje ima (odnosi se na loyalty program).
+
 
 }

@@ -1,6 +1,8 @@
 package com.example.backend.model.other;
 
+import com.example.backend.model.common.Country;
 import lombok.Data;
+import org.apache.tomcat.jni.Address;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -17,16 +19,19 @@ public class House {
     @Column(name = "house_id", nullable = false, unique = true)
     private UUID houseId;
 
-    @Column(name = "housename")
+    @Column(name = "house_name")
     private String houseName;
 
-    @Column(name = "houseaddress")
+    // kako ovo resiti, da na jednoj adres moze biti samo jedna kuca?
+    @Column(name = "house_address")
     private String houseAddress;
 
-    @Column(name = "housedescription")
+    @Column(name = "house_description")
     private String houseDescription;
 
-    @Column(name = "housegrade")
+    @Column(name = "house_grade")
     private Double houseGrade;
+
+
 
 }

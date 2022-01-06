@@ -1,5 +1,6 @@
 package com.example.backend.model.other;
 
+import com.example.backend.model.common.Address;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -17,20 +18,24 @@ public class Ship {
     @Column(name = "ship_id", nullable = false, unique = true)
     private UUID shipId;
 
-    @Column(name = "shipname")
+    @Column(name = "ship_name")
     private String shipName;
 
-    @Column(name = "shipaddress")
-    private String shipAddress;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Address shipAddress;
 
-    @Column(name = "shipdescription")
+    @Column(name = "ship_description")
     String shipDescription;
 
-    @Column(name = "shipgrade")
+    @Column(name = "ship_grade")
     Double shipGrade;
 
     // Klasa termini,cenovnik, dodatne usuluge ima vezu neku sa  brodom
     //informacije o slobodnim terminima,
     //prikaz cenovnika i dodatnih usluga koje se uz rezervaciju mogu koristiti.
+
+
+
+
 
 }

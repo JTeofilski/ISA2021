@@ -1,6 +1,9 @@
 package com.example.backend.model.common;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -19,8 +22,13 @@ public class Country {
     @Column(name = "country_id", nullable = false, unique = true)
     private UUID countryId;
 
+    @Column(name = "country_name", nullable = false, unique = true)
     private String name;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
-    private Set<City> cities = new HashSet<>();
+    private Set<City> cities = new HashSet<City>();
+
+    public Country(String name){
+        this.name = name;
+    }
 }
