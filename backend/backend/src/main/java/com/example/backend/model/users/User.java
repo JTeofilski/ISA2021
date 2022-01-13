@@ -2,11 +2,15 @@ package com.example.backend.model.users;
 
 import com.example.backend.model.common.Address;
 import com.example.backend.model.enums.StatusOfProfile;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.Getter;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Set;
 import java.util.UUID;
 
@@ -44,7 +48,7 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     private Address address;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
@@ -52,9 +56,11 @@ public class User {
     private StatusOfProfile status;
 
     @Column
-    private boolean firstLogin;
+    private Boolean firstLogin;
 
     @Column
     private Boolean deleted;
+
+
 
 }

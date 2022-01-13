@@ -42,38 +42,38 @@ values
 --('cd63b1b1-60b0-4818-9731-84a6a1b63f80','kuca5','opis kuce 5',5),
 --('12f1f7a1-95b7-4c04-9f7e-be137f730a80','kuca6','opis kuce 6',6);
 --
---insert into public.users (user_id,email,user_password,username,first_name,last_name,phone_number)
---values
---('8f4cc3fa-d118-47b5-98af-e9d4af18bc96', 'mail1', 'marko123', 'MARKO', 'Marko', 'Markovic','tel1'),
---('9f9cce5d-9f8a-4eab-a584-cb1fab1580b7', 'mail2', 'janko123', 'JANKO', 'Janko', 'Jankovic','tel2'),
---('8f219285-99b0-4a12-ad61-82174d976704', 'mail3', 'pera123', ' PERA', 'Pera', 'Peric','tel3'),
---('23d7980c-6d11-4abd-a499-b4ebea0da646', 'mail4', 'zika123', ' ZIKA', 'Zika', 'Zikic','tel4'),
---('fcbf6574-cce9-4a15-b5aa-745a7d0433fc', 'mail5', 'mika123', ' MIKA', 'Mika', 'Mikic','tel5'),
---('7e74000b-2c36-42e5-8114-632df7dfab35', 'mail6', 'jova123', 'JOVA', 'Jova', 'Jovic','tel6');
---
---
---
---insert into public.roles values ('77654069-6a05-4293-a3d6-def4b71e84b7', 'ROLE_ADMINISTRATOR'),
---                                ('cfd893e7-e852-4c0a-8191-41fb993d7a8a', 'ROLE_CUSTOMER');
---
---insert into public.users_roles (user_id, role_id)
---values
---('8f4cc3fa-d118-47b5-98af-e9d4af18bc96', '77654069-6a05-4293-a3d6-def4b71e84b7'),
---('9f9cce5d-9f8a-4eab-a584-cb1fab1580b7', '77654069-6a05-4293-a3d6-def4b71e84b7'),
---('8f219285-99b0-4a12-ad61-82174d976704', 'cfd893e7-e852-4c0a-8191-41fb993d7a8a'),
---('23d7980c-6d11-4abd-a499-b4ebea0da646', 'cfd893e7-e852-4c0a-8191-41fb993d7a8a'),
---('fcbf6574-cce9-4a15-b5aa-745a7d0433fc', 'cfd893e7-e852-4c0a-8191-41fb993d7a8a'),
---('7e74000b-2c36-42e5-8114-632df7dfab35', 'cfd893e7-e852-4c0a-8191-41fb993d7a8a');
---
---insert into public.administrators (user_id, points)
---values
---('8f4cc3fa-d118-47b5-98af-e9d4af18bc96', 100),
---('9f9cce5d-9f8a-4eab-a584-cb1fab1580b7', 100);
---
---
---insert into public.customers (user_id, points)
---values
---('8f219285-99b0-4a12-ad61-82174d976704', 10),
---('23d7980c-6d11-4abd-a499-b4ebea0da646', 20),
---('fcbf6574-cce9-4a15-b5aa-745a7d0433fc', 30),
---('7e74000b-2c36-42e5-8114-632df7dfab35', 40);
+insert into public.users (user_id,email,user_password,username,first_name,last_name,phone_number)
+values
+('8f4cc3fa-d118-47b5-98af-e9d4af18bc96', 'mail1', '$2a$10$mVjiyAQvJJjK41FmDVmkEeDfUcA.RQn975OwJ9M0pM3BU9kxFTUl.', 'MARKO', 'Marko', 'Markovic','tel1'),
+('9f9cce5d-9f8a-4eab-a584-cb1fab1580b7', 'mail2', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', 'JANKO', 'Janko', 'Jankovic','tel2'),
+('8f219285-99b0-4a12-ad61-82174d976704', 'mail3', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', ' PERA', 'Pera', 'Peric','tel3'),
+('23d7980c-6d11-4abd-a499-b4ebea0da646', 'mail4', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', ' ZIKA', 'Zika', 'Zikic','tel4'),
+('fcbf6574-cce9-4a15-b5aa-745a7d0433fc', 'mail5', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', ' MIKA', 'Mika', 'Mikic','tel5'),
+('7e74000b-2c36-42e5-8114-632df7dfab35', 'mail6', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', 'JOVA', 'Jova', 'Jovic','tel6');
+
+
+
+insert into public.roles values ('77654069-6a05-4293-a3d6-def4b71e84b7', 'ROLE_ADMINISTRATOR'),
+                                ('cfd893e7-e852-4c0a-8191-41fb993d7a8a', 'ROLE_CUSTOMER');
+
+insert into public.users_roles (user_id, role_id)
+values
+('8f4cc3fa-d118-47b5-98af-e9d4af18bc96', '77654069-6a05-4293-a3d6-def4b71e84b7'),
+('9f9cce5d-9f8a-4eab-a584-cb1fab1580b7', '77654069-6a05-4293-a3d6-def4b71e84b7'),
+('8f219285-99b0-4a12-ad61-82174d976704', 'cfd893e7-e852-4c0a-8191-41fb993d7a8a'),
+('23d7980c-6d11-4abd-a499-b4ebea0da646', 'cfd893e7-e852-4c0a-8191-41fb993d7a8a'),
+('fcbf6574-cce9-4a15-b5aa-745a7d0433fc', 'cfd893e7-e852-4c0a-8191-41fb993d7a8a'),
+('7e74000b-2c36-42e5-8114-632df7dfab35', 'cfd893e7-e852-4c0a-8191-41fb993d7a8a');
+
+insert into public.administrators (user_id)
+values
+('8f4cc3fa-d118-47b5-98af-e9d4af18bc96'),
+('9f9cce5d-9f8a-4eab-a584-cb1fab1580b7');
+
+
+insert into public.customers (user_id)
+values
+('8f219285-99b0-4a12-ad61-82174d976704'),
+('23d7980c-6d11-4abd-a499-b4ebea0da646'),
+('fcbf6574-cce9-4a15-b5aa-745a7d0433fc'),
+('7e74000b-2c36-42e5-8114-632df7dfab35');
