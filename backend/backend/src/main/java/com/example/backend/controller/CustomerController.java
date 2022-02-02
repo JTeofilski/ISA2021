@@ -30,8 +30,11 @@ public class CustomerController {
 
 
     @PostMapping
-    public ResponseEntity<Customer> create(@RequestBody Customer customer){
-        return ResponseEntity.ok().body(customerService.create(customer));
-
+    public ResponseEntity<?> create(@RequestBody Customer customer){
+        try {
+            return ResponseEntity.ok().body(customerService.create(customer));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(400).body(e.getMessage());
+        }
     }
 }
