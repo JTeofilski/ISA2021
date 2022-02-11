@@ -5,8 +5,11 @@ import com.example.backend.model.users.User;
 import com.example.backend.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,4 +40,18 @@ public class CustomerController {
             return ResponseEntity.status(400).body(e.getMessage());
         }
     }
+
+
+    @PreAuthorize("hasRole('ROLE_CUSTOMER')")
+    @PutMapping
+    public ResponseEntity<?> update(@RequestBody Customer customer){
+        try {
+            Customer c = customerService.update(customer);
+            return new ResponseEntity<>(c, HttpStatus.OK);
+        } catch (UsernameNotFoundException e) {
+            return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
 }

@@ -2,17 +2,12 @@ package com.example.backend.service;
 
 import com.example.backend.model.users.Customer;
 import com.example.backend.model.users.Role;
-import com.example.backend.model.users.User;
 import com.example.backend.repository.CustomerRepository;
 import com.example.backend.repository.RoleRepository;
-import com.example.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -48,5 +43,21 @@ public class CustomerService {
 
         sender.SendVerificationMailForCustomer(newCustomer.getEmail(), newCustomer.getUserId().toString());
         return newCustomer;
+    }
+
+    public Customer update(Customer customer){
+        Customer c = customerRepository.getCustomerByEmail(customer.getEmail());
+
+        if (c == null) {
+            throw new UsernameNotFoundException("User not found in database!");
+        }
+
+        c.setPassword(customer.getPassword());
+        c.setFirstName(customer.getFirstName());
+        c.setLastName(customer.getLastName());
+        c.setPhoneNumber(customer.getPhoneNumber());
+        c.setAddress(customer.getAddress());
+
+        return customerRepository.save(c);
     }
 }

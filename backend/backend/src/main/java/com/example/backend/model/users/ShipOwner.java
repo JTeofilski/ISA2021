@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "houses")
+@Table(name = "ship_owners")
 // nna foru housewnera
 public class ShipOwner extends User {
 
