@@ -1,8 +1,25 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
+import {createRouter, createWebHistory} from "vue-router";
+import store from '@/store'
+import HomePage from "@/components/HomePage";
+import LoginPage from "@/components/LoginPage";
+import RegistrationPage from "@/components/RegistrationPage";
 
-Vue.config.productionTip = false
+const router = createRouter({
+    mode: 'history',
+    history: createWebHistory(),
+    routes: [
+        {path: '/', component:HomePage},
+        {path:'/home', component:HomePage},
+        {path: '/login',component:LoginPage},
+        {path: '/registration',component:RegistrationPage}
+    ]
+});
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+
+const app = createApp(App);
+
+app.use(router);
+app.use(store);
+app.mount('#app');
