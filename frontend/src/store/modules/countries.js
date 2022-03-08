@@ -1,27 +1,26 @@
 import backApi from "@/api/backApi";
 
 const state = {
-    countries:[]
+    countries: []
 };
 
 const getters = {
-  allCountries: function(state) {
-      return state.countries;
-  }
+    allCountries: function (state) {
+        return state.countries;
+    }
 };
 
 const mutations = {
-    setCountries: function(state, newCountries){
+    setCountries: function (state, newCountries) {
         state.countries = newCountries;
     }
 };
 
 
-
 const actions = {
-   fetchCountries: async function({commit}){
-    const response =  await backApi.get('/country')
-    commit('setCountries', response.data)
+    fetchCountries: async function ({commit}) {
+        const response = await backApi.get('/country')
+        commit('setCountries', response.data)
     }
 };
 

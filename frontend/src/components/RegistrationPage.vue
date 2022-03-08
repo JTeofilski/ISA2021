@@ -1,75 +1,113 @@
 <template>
   <div class="container">
     <h1 class="d-flex justify-content-center my-2">Registracija</h1>
-      <div class="d-flex justify-content-center">
-        <form class="w-50">
-          <div class="row py-2">
-            <div class="col-6">
-              <label for="ime" class="form-label">Ime</label>
-              <input type="text" class="form-control" id="ime" >
-            </div>
-            <div class="col-6">
-              <label for="prezime" class="form-label">Prezime</label>
-              <input type="text" class="form-control" id="prezime">
-            </div>
+    <div class="d-flex justify-content-center">
+      <form class="w-50" v-on:submit.prevent="onSubmit">
+        <div class="row py-2">
+          <div class="col-6">
+            <label for="ime" class="form-label">Ime</label>
+            <input v-model="user.firstName" type="text" class="form-control" id="ime">
+          </div>
+          <div class="col-6">
+            <label for="prezime" class="form-label">Prezime</label>
+            <input v-model="user.lastName" type="text" class="form-control" id="prezime">
+          </div>
+        </div>
+
+        <div class="row pb-2">
+          <div class="col-12">
+            <label for="email" class="form-label">Email adresa</label>
+            <input v-model="user.email" type="text" class="form-control" id="email">
+          </div>
+        </div>
+
+        <div class="row pb-2">
+          <div class="col-6">
+            <label for="lozinka" class="form-label">Lozinka</label>
+            <input v-model="user.password" type="password" class="form-control" id="lozinka">
           </div>
 
-          <div class="row pb-2">
-            <div class="col-12">
-              <label for="email" class="form-label">Email adresa</label>
-              <input type="text" class="form-control" id="email">
-            </div>
+          <div class="col-6">
+            <label for="lozinkaa" class="form-label">Ponovi lozinku</label>
+            <input v-model="user.checkPassword" type="password" class="form-control" id="lozinkaa">
+          </div>
+        </div>
+
+
+        <div class="row pb-2">
+          <div class="col-6">
+            <label for="adresa" class="form-label">Adresa</label>
+            <input v-model="user.address" type="text" class="form-control" id="adresa">
           </div>
 
-          <div class="row pb-2">
-            <div class="col-6">
-              <label for="lozinka" class="form-label">Lozinka</label>
-              <input type="password" class="form-control" id="lozinka">
-            </div>
+          <div class="col-6">
+            <label for="telefon" class="form-label">Broj telefona</label>
+            <input v-model="user.phoneNumber" type="text" class="form-control" id="telefon">
+          </div>
+        </div>
 
-            <div class="col-6">
-              <label for="lozinkaa" class="form-label">Ponovi lozinku</label>
-              <input type="password" class="form-control" id="lozinkaa">
-            </div>
+        <div class="row pb-2">
+          <div class="col-6">
+            <label for="drzava" class="form-label">Drzava</label>
+            <select v-model="user.country" class="form-control" id="drzava">
+              <option v-bind:value="null">Izaberite drzavu</option>
+              <option v-for="country in allCountries" v-bind:key="country.id" v-bind:value="country">
+                {{ country.name }}
+              </option>
+            </select>
           </div>
 
-
-          <div class="row pb-2">
-            <div class="col-6">
-              <label for="adresa" class="form-label">Adresa</label>
-              <input type="text" class="form-control" id="adresa">
-            </div>
-
-            <div class="col-6">
-              <label for="telefon" class="form-label">Broj telefona</label>
-              <input type="text" class="form-control" id="telefon">
-            </div>
+          <div class="col-6">
+            <label for="grad" class="form-label">Grad</label>
+            <select disabled="disabled" v-model="user.city" class="form-control" id="grad">
+              <option v-bind:value="null">Izaberite grad</option>
+              <option v-for="city in allCities" v-bind:key="city.id" v-bind:value="city">
+                {{ city.name }}
+              </option>
+            </select>
           </div>
+        </div>
 
-          <div class="row pb-2">
-            <div class="col-6">
-              <label for="drzava" class="form-label">Drzava</label>
-              <input type="text" class="form-control" id="drzava">
-            </div>
+        <button   type="submit" class="btn btn-primary w-100">Registruj se</button>
+      </form>
 
-            <div class="col-6">
-              <label for="grad" class="form-label">Grad</label>
-              <input type="text" class="form-control" id="grad">
-            </div>
-          </div>
-
-
-          <button type="submit" class="btn btn-primary w-100">Registruj se</button>
-        </form>
-
-      </div>
+    </div>
 
   </div>
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex";
+
 export default {
-  name: "RegistrationPage"
+  name: "RegistrationPage",
+  data: function () {
+    return {
+      user: {
+        email: "",
+        password: "",
+        checkPassword:"",
+        firstName: "",
+        lastName: "",
+        phoneNumber: "",
+        address: "",
+        country: null,
+        city: null
+      }
+    }
+  },
+  computed: mapGetters(['allCountries', 'allCities']),
+  methods: {
+    ...mapActions(['fetchCountries', 'fetchCities']),
+    onSubmit() {
+      console.log(this.user)
+    }
+  },
+  created() {
+    this.fetchCountries();
+    this.fetchCities();
+  }
+
 }
 </script>
 

@@ -1,9 +1,6 @@
 package com.example.backend.model.common;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -11,6 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name = "cities")

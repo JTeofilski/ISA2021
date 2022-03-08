@@ -7,7 +7,7 @@
           <div class="row pb-2">
             <div class="col-12">
               <label for="email" class="form-label">Email adresa</label>
-              <input type="text" class="form-control" id="email" >
+              <input v-model="login.email" type="text" class="form-control" id="email" >
             </div>
           </div>
 
@@ -15,7 +15,7 @@
           <div class="row pb-2">
             <div class="col-12">
               <label for="lozinka" class="form-label">Lozinka</label>
-              <input type="password" class="form-control" id="lozinka">
+              <input v-model="login.password" type="password" class="form-control" id="lozinka">
             </div>
           </div>
 
@@ -27,9 +27,28 @@
 </template>
 
 <script>
+
 export default {
-  name: "LoginPage"
+  name: "LoginPage",
+  data : function (){
+    return{
+      login: {
+        email: "",
+        password: ""
+      }
+    }
+  },
+  methods: {
+    onSubmit() {
+      console.log(this.login)
+    }
+  }
+
 }
+
+
+
+
 </script>
 
 <style scoped>

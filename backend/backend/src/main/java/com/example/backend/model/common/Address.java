@@ -1,14 +1,14 @@
 package com.example.backend.model.common;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.UUID;
 
+
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name = "addresses")
@@ -22,15 +22,12 @@ public class Address {
     @Column(name = "street", nullable = false, unique=true)
     private String street;
 
-    @Column(name = "house_number", nullable = false, unique=true)
-    private Integer houseNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private City city;
 
     public Address(String street, int houseNumber, City city) {
         this.street = street;
-        this.houseNumber = houseNumber;
         this.city = city;
 
     }
