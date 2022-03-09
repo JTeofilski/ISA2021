@@ -1,5 +1,6 @@
 package com.example.backend.model.common;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -18,8 +19,8 @@ public class City {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "city_id", nullable = false, unique = true)
-    private UUID cityId;
+    @Column(name = "id", nullable = false, unique = true)
+    private UUID id;
 
     @Column(name = "city_name", nullable = false, unique=true)
     private String name;
@@ -27,6 +28,7 @@ public class City {
     @Column(name = "post_code", nullable = false, unique=true)
     private Integer postCode;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     private Country country;
 

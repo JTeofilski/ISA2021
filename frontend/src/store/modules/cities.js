@@ -20,6 +20,10 @@ const actions = {
     fetchCities: async function({commit}){
         const response =  await backApi.get('/city')
         commit('setCities', response.data)
+    },
+    fetchCitiesByCountry: async function({commit},countryId){
+        const response =  await backApi.get(`/city/${countryId}`)
+        commit('setCities', response.data)
     }
 };
 

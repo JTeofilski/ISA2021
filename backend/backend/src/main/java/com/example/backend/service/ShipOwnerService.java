@@ -38,7 +38,7 @@ public class ShipOwnerService {
 
         ShipOwner newShipOwner = shipOwnerRepository.save(shipOwner);
 
-        sender.SendVerificationMailForCustomer(newShipOwner.getEmail(), newShipOwner.getUserId().toString());
+        sender.SendVerificationMailForCustomer(newShipOwner.getEmail(), newShipOwner.getId().toString());
         return newShipOwner;
     }
 }

@@ -19,8 +19,8 @@ public class House {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "house_id", nullable = false, unique = true)
-    private UUID houseId;
+    @Column(name = "id", nullable = false, unique = true)
+    private UUID id;
 
     @Column(name = "house_name")
     private String houseName;

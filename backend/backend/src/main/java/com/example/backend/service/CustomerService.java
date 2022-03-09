@@ -1,5 +1,8 @@
 package com.example.backend.service;
 
+import com.example.backend.model.common.Address;
+import com.example.backend.model.dto.UserDTO;
+import com.example.backend.model.enums.StatusOfProfile;
 import com.example.backend.model.users.Customer;
 import com.example.backend.model.users.Role;
 import com.example.backend.repository.CustomerRepository;
@@ -25,15 +28,31 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public Customer create(Customer customer){
+    public Customer create(UserDTO u){
 
-        Customer c = customerRepository.getCustomerByEmail(customer.getEmail());
+        Customer c = customerRepository.getCustomerByEmail(u.getEmail());
 
         if (c != null) {
             throw new IllegalArgumentException("Email already exists!");
         }
+        Customer customer = new Customer();
+        customer.setFirstName(u.getFirstName());
+        customer.setLastName(u.getLastName());
+        customer.setEmail(u.getEmail());
+        customer.setPassword(encoder.encode(u.getPassword()));
+        customer.setPhoneNumber(u.getPhoneNumber());
 
-        customer.setPassword(encoder.encode(customer.getPassword()));
+
+        Address a = new Address();
+        a.setStreet(u.getAddress());
+        a.setCity(u.getCity());
+
+        customer.setAddress(a);
+
+        customer.setFirstLogin(true);
+        customer.setStatus(StatusOfProfile.REGISTERED);
+
+
         Set<Role> roles = new HashSet<>();
         Role role = roleRepository.getRoleByRoleName("ROLE_CUSTOMER");
         roles.add(role);
@@ -41,8 +60,8 @@ public class CustomerService {
 
         Customer newCustomer =  customerRepository.save(customer);
 
-        sender.SendVerificationMailForCustomer(newCustomer.getEmail(), newCustomer.getUserId().toString());
-        return newCustomer;
+        //    sender.SendVerificationMailForCustomer(newCustomer.getEmail(), newCustomer.getId().toString());
+         return newCustomer;
     }
 
     public Customer update(Customer customer){

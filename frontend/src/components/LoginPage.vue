@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="d-flex justify-content-center my-2">Prijava</h1>
       <div class="d-flex justify-content-center">
-        <form class="w-50">
+        <form class="w-50" v-on:submit.prevent="onSubmit">
 
           <div class="row pb-2">
             <div class="col-12">

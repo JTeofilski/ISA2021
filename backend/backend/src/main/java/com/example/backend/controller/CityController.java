@@ -10,7 +10,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @RestController
@@ -34,4 +37,11 @@ public class CityController {
         return ResponseEntity.ok().body(cityService.create(city));
 
     }
+
+    @GetMapping("/{countryId}")
+    public ResponseEntity<List<City>> findAllByCountry(@PathVariable UUID countryId){
+        return ResponseEntity.ok().body(cityService.findAllByCountry(countryId));
+
+    }
+
 }

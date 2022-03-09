@@ -24,17 +24,14 @@ public class User {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "user_id", nullable = false, unique = true)
-    private UUID userId;
+    @Column(name = "id", nullable = false, unique = true)
+    private UUID id;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "user_password", nullable = false)
     private String password;
-
-  //  @Column(name = "username", nullable = false, unique = true)
-   // private String username;
 
     @Column(name = "first_name")
     private String firstName;

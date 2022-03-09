@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.model.dto.UserDTO;
 import com.example.backend.model.users.Customer;
 import com.example.backend.model.users.User;
 import com.example.backend.service.CustomerService;
@@ -33,16 +34,16 @@ public class CustomerController {
 
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody Customer customer){
+    public ResponseEntity<?> create(@RequestBody UserDTO userDTO){
         try {
-            return ResponseEntity.ok().body(customerService.create(customer));
+            return ResponseEntity.ok().body(customerService.create(userDTO));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(400).body(e.getMessage());
         }
     }
 
 
-    @PreAuthorize("hasRole('ROLE_CUSTOMER')")
+   // @PreAuthorize("hasRole('ROLE_CUSTOMER')")
     @PutMapping
     public ResponseEntity<?> update(@RequestBody Customer customer){
         try {

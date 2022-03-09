@@ -38,7 +38,7 @@ public class InstructorService {
 
         Instructor newInstructor =  instructorRepository.save(instructor);
 
-        sender.SendVerificationMailForCustomer(newInstructor.getEmail(), newInstructor.getUserId().toString());
+        sender.SendVerificationMailForCustomer(newInstructor.getEmail(), newInstructor.getId().toString());
         return newInstructor;
     }
 

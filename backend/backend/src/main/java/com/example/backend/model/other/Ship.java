@@ -17,8 +17,8 @@ public class Ship {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "ship_id", nullable = false, unique = true)
-    private UUID shipId;
+    @Column(name = "id", nullable = false, unique = true)
+    private UUID id;
 
     @Column(name = "ship_name")
     private String shipName;

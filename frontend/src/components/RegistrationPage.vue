@@ -49,7 +49,7 @@
         <div class="row pb-2">
           <div class="col-6">
             <label for="drzava" class="form-label">Drzava</label>
-            <select v-model="user.country" class="form-control" id="drzava">
+            <select v-on:change="onChangeCountry" v-model="user.country" class="form-select" id="drzava">
               <option v-bind:value="null">Izaberite drzavu</option>
               <option v-for="country in allCountries" v-bind:key="country.id" v-bind:value="country">
                 {{ country.name }}
@@ -59,7 +59,7 @@
 
           <div class="col-6">
             <label for="grad" class="form-label">Grad</label>
-            <select disabled="disabled" v-model="user.city" class="form-control" id="grad">
+            <select :disabled="!user.country" v-model="user.city" class="form-select" id="grad">
               <option v-bind:value="null">Izaberite grad</option>
               <option v-for="city in allCities" v-bind:key="city.id" v-bind:value="city">
                 {{ city.name }}
@@ -98,10 +98,14 @@ export default {
   },
   computed: mapGetters(['allCountries', 'allCities']),
   methods: {
-    ...mapActions(['fetchCountries', 'fetchCities']),
+    ...mapActions(['fetchCountries', 'fetchCities', 'fetchCitiesByCountry','createCustomer']),
     onSubmit() {
-      console.log(this.user)
+      this.createCustomer(this.user);
+    },
+    onChangeCountry(){
+      this.fetchCitiesByCountry(this.user.country.id);
     }
+
   },
   created() {
     this.fetchCountries();

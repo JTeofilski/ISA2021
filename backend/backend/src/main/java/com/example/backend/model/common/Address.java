@@ -16,8 +16,8 @@ public class Address {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "address_id", nullable = false, unique = true)
-    private UUID addressId;
+    @Column(name = "id", nullable = false, unique = true)
+    private UUID id;
 
     @Column(name = "street", nullable = false, unique=true)
     private String street;
@@ -26,7 +26,7 @@ public class Address {
     @ManyToOne(fetch = FetchType.LAZY)
     private City city;
 
-    public Address(String street, int houseNumber, City city) {
+    public Address(String street, City city) {
         this.street = street;
         this.city = city;
 
