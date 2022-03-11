@@ -2,6 +2,8 @@ package com.example.backend.model.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -27,6 +29,7 @@ public class Country {
 
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "country")
+    @Fetch(value = FetchMode.SELECT)
     private Set<City> cities = new HashSet<City>();
 
     public Country(String name){

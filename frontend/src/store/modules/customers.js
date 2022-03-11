@@ -17,15 +17,13 @@ const mutations = {
 
 const actions = {
     createCustomer: async function ({commit} , user) {
-        const response = await backApi.post(`/api/customer`, user)
-        if (response.status === 200) {
+        await backApi.post(`/customer`, user).then(response =>{
             commit("setCustomer", response.data)
             alert("Korisnik uspesno registrovan")
-        } else {
+        }).catch(()=>{
             commit("setCustomer", null)
             alert("Greska sa podacima")
-
-        }
+        })
     }
 };
 

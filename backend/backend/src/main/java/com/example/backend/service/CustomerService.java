@@ -23,6 +23,7 @@ public class CustomerService {
     final private PasswordEncoder encoder;
     final private RoleRepository roleRepository;
     final private EmailSender sender;
+    final private AddressService addressService;
 
     public List<Customer> findAll() {
         return customerRepository.findAll();
@@ -47,7 +48,7 @@ public class CustomerService {
         a.setStreet(u.getAddress());
         a.setCity(u.getCity());
 
-        customer.setAddress(a);
+        customer.setAddress(addressService.create(a));
 
         customer.setFirstLogin(true);
         customer.setStatus(StatusOfProfile.REGISTERED);
