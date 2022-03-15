@@ -3,15 +3,15 @@
     <h1 class="d-flex justify-content-center my-5">Početna stranica</h1>
 
     <div class="row pb-2">
-      <router-link to="/registration" class="btn btn-primary w-50" type="button">Vikendice</router-link>
+      <router-link to="/houses" class="btn btn-primary w-50" type="button">Vikendice</router-link>
     </div>
 
     <div class="row pb-2">
-      <router-link to="/registration" class="btn btn-primary w-50" type="button">Brodovi</router-link>
+      <router-link to="/ships" class="btn btn-primary w-50" type="button">Brodovi</router-link>
     </div>
 
     <div class="row pb-2">
-      <router-link to="/registration" class="btn btn-primary w-50" type="button">Instruktori</router-link>
+      <router-link to="/adventures" class="btn btn-primary w-50" type="button">Avanture</router-link>
     </div>
 
 

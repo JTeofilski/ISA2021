@@ -24,24 +24,35 @@ values
 ('3cc53654-aa0a-4d63-95c2-9b8d6690b12c','Ulica 5'),
 ('0fe5ea2e-1c8b-48ef-bada-0c6ae2f37978','Ulica 6');
 
---insert into public.ships (id, ship_name, ship_description, ship_grade)
---values
---('e54b9861-9db8-4660-8c2d-f7df1265521c', 'brod1','brod opis 1', 1),
---('a545683a-79a6-42fe-b0a9-fb58178cf144', 'brod2','brod opis 2', 2),
---('c61202ed-9c33-4999-90c1-deab03c12960', 'brod3','brod opis 3', 3),
---('2490a4ee-dd1f-4f06-8edb-66c652969157', 'brod4','brod opis 4', 4),
---('622e1d98-f843-403f-b410-a1d87f3d4721', 'brod5','brod opis 5', 5),
---('8bedbf0e-d0b5-47b0-92c8-290c181c9466', 'brod6','brod opis 6', 6);
---
---insert into public.houses (house_id, house_name, house_description, house_grade)
---values
---('4f6d80ba-ba61-4f46-9b6b-83f1ff2512d1','kuca1','opis kuce 1',1),
---('92ec5264-2c8b-481b-8d9d-318927a92bef','kuca2','opis kuce 2',2),
---('e7349bf6-8ac9-484c-84bc-2a24839c82df','kuca3','opis kuce 3',3),
---('7a4b4e69-7404-44f0-b870-3834863104b5','kuca4','opis kuce 4',4),
---('cd63b1b1-60b0-4818-9731-84a6a1b63f80','kuca5','opis kuce 5',5),
---('12f1f7a1-95b7-4c04-9f7e-be137f730a80','kuca6','opis kuce 6',6);
---
+insert into public.ships (id, ship_name, ship_description, ship_grade)
+values
+('e54b9861-9db8-4660-8c2d-f7df1265521c', 'brod1','brod opis 1', 1),
+('a545683a-79a6-42fe-b0a9-fb58178cf144', 'brod2','brod opis 2', 2),
+('c61202ed-9c33-4999-90c1-deab03c12960', 'brod3','brod opis 3', 3),
+('2490a4ee-dd1f-4f06-8edb-66c652969157', 'brod4','brod opis 4', 4),
+('622e1d98-f843-403f-b410-a1d87f3d4721', 'brod5','brod opis 5', 5),
+('8bedbf0e-d0b5-47b0-92c8-290c181c9466', 'brod6','brod opis 6', 6);
+
+insert into public.adventures (id, adv_name, adv_address, adv_description, adv_grade)
+values
+('9e5158a0-d664-461e-8b1a-cf635aa31929', 'avantura1', 'adv adr 1' ,'av opis 1', 1),
+('77c142dc-cb3f-455e-820e-c045b4fc89d1', 'avantura2', 'adv adr 2' ,'av opis 2', 2),
+('d1ae7370-8dd6-433f-bea9-5c405d53e905', 'avantura3', 'adv adr 3' ,'av opis 3', 3),
+('a2a9e220-83f6-4f4c-ac0d-4df1ce3276c8', 'avantura4', 'adv adr 4' ,'av opis 4', 4),
+('c9e99051-b57a-443d-a39c-5cee14479d2e', 'avantura5', 'adv adr 5' ,'av opis 5', 5),
+('edf0963d-9353-4e86-84e8-4abdce32e090', 'avantura6', 'adv adr 6' ,'av opis 6', 6);
+
+
+
+insert into public.houses (id, house_name, house_description, house_grade)
+values
+('4f6d80ba-ba61-4f46-9b6b-83f1ff2512d1','kuca1','opis kuce 1',1),
+('92ec5264-2c8b-481b-8d9d-318927a92bef','kuca2','opis kuce 2',2),
+('e7349bf6-8ac9-484c-84bc-2a24839c82df','kuca3','opis kuce 3',3),
+('7a4b4e69-7404-44f0-b870-3834863104b5','kuca4','opis kuce 4',4),
+('cd63b1b1-60b0-4818-9731-84a6a1b63f80','kuca5','opis kuce 5',5),
+('12f1f7a1-95b7-4c04-9f7e-be137f730a80','kuca6','opis kuce 6',6);
+
 insert into public.users (id,email,user_password,first_name,last_name,phone_number)
 values
 ('8f4cc3fa-d118-47b5-98af-e9d4af18bc96', 'mail1', '$2a$10$mVjiyAQvJJjK41FmDVmkEeDfUcA.RQn975OwJ9M0pM3BU9kxFTUl.', 'Marko', 'Markovic','tel1'),

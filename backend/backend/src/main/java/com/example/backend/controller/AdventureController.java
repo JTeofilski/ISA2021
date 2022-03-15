@@ -26,6 +26,7 @@ public class AdventureController {
 
     @GetMapping
     public ResponseEntity<List<Adventure>> findAll() {
+        //System.out.println("Usao u kontroler");
         return ResponseEntity.ok().body(this.adventureService.findAll());
     }
 

@@ -27,6 +27,7 @@ public class ShipController {
 
     @GetMapping
     public ResponseEntity<List<Ship>> findAll() {
+        //System.out.println("Usao u ship kontroler");
         return ResponseEntity.ok().body(this.shipService.findAll());
     }
 

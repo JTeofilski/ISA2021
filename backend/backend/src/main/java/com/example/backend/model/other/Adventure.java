@@ -16,19 +16,19 @@ public class Adventure {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "adventure_id", nullable = false, unique = true)
-    private UUID adventureId;
+    @Column(name = "id", nullable = false, unique = true)
+    private UUID id;
 
-    @Column(name = "adventure_name")
+    @Column(name = "adv_name")
     String adventureName;
 
-    @Column(name = "adventure_address")
+    @Column(name = "adv_address")
     String advetureAddress;
 
-    @Column(name = "adventure_description")
+    @Column(name = "adv_description")
     String adventureDescription;
 
-    @Column(name = "adventure_grade")
+    @Column(name = "adv_grade")
     Double adventureGrade;
 
     @OneToOne(fetch = FetchType.LAZY)

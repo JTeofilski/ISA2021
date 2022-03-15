@@ -41,6 +41,7 @@ export default {
   methods: {
     onSubmit() {
       console.log(this.login)
+      console.log('uspesan login')
     }
   }
 
