@@ -9,12 +9,14 @@ import RegistrationPage from "@/components/RegistrationPage";
 
 import  Houses from "@/components/Houses";
 import  Ships from "@/components/Ships";
-import  Adventures from "@/components/Adventures";
+import  Adventures from "@/components/Instructors";
 
 import HouseProfile from "@/components/HouseProfile";
 import ShipProfile from "@/components/ShipProfile";
 import InstructorProfile from "@/components/InstructorProfile";
 import UserProfile from "@/components/UserProfile";
+import RegistrationPageHouseOwner from "@/components/RegistrationPageHouseOwner";
+import Profile from "@/components/Profile";
 
 const router = createRouter({
     mode: 'history',
@@ -24,14 +26,17 @@ const router = createRouter({
         {path:'/home', component:HomePage},
         {path: '/login',component:LoginPage},
         {path: '/registration',component:RegistrationPage},
+        {path: '/registracijaOglasivaca',component:RegistrationPageHouseOwner},
+        {path: '/profile',component:Profile},
+
 
         {path: '/houses',component:Houses},
         {path: '/ships',component:Ships},
         {path: '/adventures',component:Adventures},
 
         {path: '/houseProfile/:tempHouseId',component:HouseProfile },
-        {path: '/shipProfile',component:ShipProfile },
-        {path: '/instructorProfile',component:InstructorProfile },
+        {path: '/shipProfile/:tempShipId',component:ShipProfile },
+        {path: '/instructorProfile/:tempInstructorId',component:InstructorProfile },
         {path: '/userProfile',component:UserProfile },
 
     ]

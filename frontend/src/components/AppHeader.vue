@@ -12,10 +12,16 @@
           </li>
 
         </ul>
-        <form class="d-flex">
+        <form class="d-flex" v-if="!getIsLoggedIn">
           <router-link to="/registration" class="btn btn-primary me-3" type="button">Registruj se</router-link>
           <router-link to="/login" class="btn btn-primary" type="button">Prijavi se</router-link>
         </form>
+
+        <form class="d-flex" v-if="getIsLoggedIn">
+          <router-link to="/profile" class="btn btn-primary me-3" type="button">Profil</router-link>
+          <button class="btn btn-primary" type="button" v-on:click="logOut()" >Odjavi se</button>>
+        </form>
+
       </div>
     </div>
   </nav>
@@ -23,8 +29,20 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex";
+
 export default {
-  name: "AppHeader"
+  name: "AppHeader",
+  computed : mapGetters(['getIsLoggedIn']),
+  methods: {
+    ...mapActions(['logOutAction']),
+    logOut(){
+      this.logOutAction()
+      alert('Success logOut')
+      this.$router.push('/home')
+    }
+
+  }
 }
 </script>
 

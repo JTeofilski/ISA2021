@@ -1,6 +1,5 @@
 package com.example.backend.controller;
 
-import com.example.backend.model.users.Customer;
 import com.example.backend.model.users.User;
 import com.example.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -33,5 +32,7 @@ public class UserController {
         return ResponseEntity.ok().body(userService.create(user));
 
     }
+
+
 
 }

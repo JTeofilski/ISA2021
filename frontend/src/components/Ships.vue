@@ -6,7 +6,7 @@
         <tbody>
         <tr v-for="tempShip in ships" v-bind:key = "tempShip.id">
           <td>
-            <router-link to="/shipProfile" class="btn btn-primary w-100" type="button">{{tempShip.shipName}}</router-link>
+            <button @click="shipDetails(tempShip.id)">{{tempShip.shipName}}</button>
           </td>
         </tr>
 
@@ -36,9 +36,10 @@ export default {
     })
   },
   methods:{
+    shipDetails(tempShipId) {
+      this.$router.push(`/shipProfile/${tempShipId}`)
 
-
-
+    }
   },
   computed:{
 

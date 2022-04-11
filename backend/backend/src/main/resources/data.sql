@@ -60,7 +60,19 @@ values
 ('8f219285-99b0-4a12-ad61-82174d976704', 'mail3', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', 'Pera', 'Peric','tel3'),
 ('23d7980c-6d11-4abd-a499-b4ebea0da646', 'mail4', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', 'Zika', 'Zikic','tel4'),
 ('fcbf6574-cce9-4a15-b5aa-745a7d0433fc', 'mail5', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', 'Mika', 'Mikic','tel5'),
-('7e74000b-2c36-42e5-8114-632df7dfab35', 'mail6', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', 'Jova', 'Jovic','tel6');
+('7e74000b-2c36-42e5-8114-632df7dfab35', 'mail6', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', 'Jova', 'Jovic','tel6'),
+('875c51d8-a7d1-43b7-a4ec-93d6c1e2b882', 'mail7', '$2a$12$khjjlCvof3U/dhqr4OG6u.lLy28Bu9mRRZ/.jeJEn7EebsBYywKAu', 'Joca', 'Jocic','tel7');
+
+
+
+
+
+insert  into public.instructors(id,adventure_id)
+values
+('875c51d8-a7d1-43b7-a4ec-93d6c1e2b882','9e5158a0-d664-461e-8b1a-cf635aa31929');
+
+
+
 
 
 

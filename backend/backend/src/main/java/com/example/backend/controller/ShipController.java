@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 @RestController
@@ -36,4 +37,13 @@ public class ShipController {
         return ResponseEntity.ok().body(shipService.create(ship));
 
     }
+
+    @GetMapping("/{shipId}")
+    public Ship findById(@PathVariable UUID shipId){
+        System.out.println("Usao u ship kontroler");
+        return this.shipService.findById(shipId);
+
+    }
+
+
 }

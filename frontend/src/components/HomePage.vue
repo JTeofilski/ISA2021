@@ -11,7 +11,7 @@
     </div>
 
     <div class="row pb-2">
-      <router-link to="/adventures" class="btn btn-primary w-50" type="button">Avanture</router-link>
+      <router-link to="/adventures" class="btn btn-primary w-50" type="button">Instruktori i Avanture</router-link>
     </div>
 
 

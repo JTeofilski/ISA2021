@@ -37,7 +37,7 @@
         <div class="row pb-2">
           <div class="col-6">
             <label for="adresa" class="form-label">Adresa</label>
-            <input v-model="user.address" type="text" class="form-control" id="adresa">
+            <input required v-model="user.address" type="text" class="form-control" id="adresa">
           </div>
 
           <div class="col-6">
@@ -68,41 +68,62 @@
           </div>
         </div>
 
+        <input type="radio" id="one" value="Vlasnik vikendice" v-model="user.type">
+        <label for="one">Vlasnik vikendice</label>
+        <br>
+        <input type="radio" id="two" value="Vlasnik broda" v-model="user.type">
+        <label for="two">Vlasnik broda</label>
+        <br>
+        <input type="radio" id="three" value="Instruktor" v-model="user.type">
+        <label for="two">Instruktor</label>
+        <br>
+
+
         <button   type="submit" class="btn btn-primary w-100">Registruj se</button>
       </form>
-
-      <a href="/registracijaOglasivaca">Registracija oglašivača</a>
 
     </div>
 
   </div>
 </template>
 
+
+
+
+
 <script>
+import DataService from "@/services/DataService";
 import {mapActions, mapGetters} from "vuex";
 
 export default {
-  name: "RegistrationPage",
+  name: "RegistrationPageHouseOwner",
   data: function () {
     return {
       user: {
         email: "",
         password: "",
-        checkPassword:"",
+        //checkPassword:"",
         firstName: "",
         lastName: "",
         phoneNumber: "",
         address: "",
         country: null,
-        city: null
+        city: null,
+        type:null
       }
     }
   },
   computed: mapGetters(['allCountries', 'allCities']),
   methods: {
-    ...mapActions(['fetchCountries', 'fetchCities', 'fetchCitiesByCountry','createCustomer']),
+    ...mapActions(['fetchCountries', 'fetchCities', 'fetchCitiesByCountry']),
     onSubmit() {
-      this.createCustomer(this.user);
+      console.log(this.user)
+      if(this.user.type === 'Vlasnik vikendice'){
+        DataService.postHouseOwner(this.user)
+      } else if (this.user.type === 'Vlasnik broda'){
+          DataService.postShipOwner(this.user)
+      }
+
     },
     onChangeCountry(){
       this.fetchCitiesByCountry(this.user.country.id);
@@ -113,8 +134,9 @@ export default {
     this.fetchCountries();
     this.fetchCities();
   }
-
 }
+
+
 </script>
 
 <style scoped>

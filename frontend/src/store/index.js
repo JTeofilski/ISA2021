@@ -6,7 +6,7 @@ import customers from "@/store/modules/customers";
 import houses from "@/store/modules/houses";
 import ships from "@/store/modules/ships";
 import adventures from "@/store/modules/adventures";
-
+import auth from "@/store/modules/auth";
 
 
 export default createStore({
@@ -16,6 +16,7 @@ export default createStore({
         customers,
         houses,
         ships,
-        adventures
+        adventures,
+        auth
     }
 });

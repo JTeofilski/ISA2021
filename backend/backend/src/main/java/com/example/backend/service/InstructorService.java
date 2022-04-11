@@ -1,5 +1,7 @@
 package com.example.backend.service;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+import com.example.backend.model.other.House;
 import com.example.backend.model.users.Customer;
 import com.example.backend.model.users.HouseOwner;
 import com.example.backend.model.users.Instructor;
@@ -10,8 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @RequiredArgsConstructor
 @Service
@@ -42,6 +43,16 @@ public class InstructorService {
         return newInstructor;
     }
 
+    public Instructor findById(UUID instructorId){
+        Instructor tempInstructor = this.instructorRepository.findById(instructorId).orElseThrow(()-> new NoSuchElementException("No instructor by id"));
+        System.out.println(tempInstructor);
+        return tempInstructor;
+    }
+
+
+    public List<Instructor> findAll() {
+        return instructorRepository.findAll();
+    }
 
 
 }

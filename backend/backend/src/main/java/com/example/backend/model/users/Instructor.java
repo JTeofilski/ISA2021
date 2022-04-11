@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "instructors")
 public class Instructor extends User{
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     private Adventure adventure;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "instructor")
